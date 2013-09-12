@@ -1,4 +1,4 @@
-package lang;
+package language;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;

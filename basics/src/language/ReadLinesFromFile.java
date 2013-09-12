@@ -1,4 +1,4 @@
-package lang;
+package language;
 
 import java.io.File;
 import java.io.FileNotFoundException;
