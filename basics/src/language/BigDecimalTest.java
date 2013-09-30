@@ -1,6 +1,7 @@
 package language;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
 
 public class BigDecimalTest {
 
@@ -16,7 +17,14 @@ public class BigDecimalTest {
     BigDecimal c = a.multiply(b);
     System.out.println(c);
     
-    BigDecimal veryLargeNumber = a.pow(1000);
-    System.out.println(veryLargeNumber.toEngineeringString());
+    // big decimal = unscaled value * 10^-scale
+    BigDecimal someNumber = new BigDecimal("23e-4");
+    System.out.println("number: " + someNumber);
+    System.out.println("unscaled value: " + someNumber.unscaledValue());
+    System.out.println("scale: " + someNumber.scale());
+    
+    BigDecimal verySmall = new BigDecimal(BigInteger.valueOf(1), 800);
+    BigDecimal evenSmaller = new BigDecimal(BigInteger.valueOf(1), 900);
+    System.out.println(verySmall.multiply(evenSmaller));
   }
 }
