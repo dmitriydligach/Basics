@@ -6,18 +6,21 @@ public class HashMapTest {
 
   public static void main(String[] args) {
     
-    HashMap<String, String> hMap = new HashMap<String, String>();
+    HashMap<String, String> map = new HashMap<String, String>();
     
-    hMap.put("1","One");
-    hMap.put("2","Two");
-    hMap.put("3","Three");
- 
-    System.out.println(hMap);
+    map.put("1","One");
+    map.put("2","Two");
+    map.put("3","Three");
+    System.out.println("1: " + map);
     
-    // testing removing from a hashmap
-    String removed = hMap.remove("2");
+    // update a value in in hashmap; here's what javadoc says:
+    // "If the map previously contained a mapping for the key, the old value is replaced by the specified value"
+    map.put("2", "this replaces the previous value");
+    System.out.println("2: " + map);
     
-    System.out.println(hMap);
+    // remove a key-value pair from a hashmap
+    String removed = map.remove("2");
+    System.out.println("3: " + map);
     System.out.println("removed: " + removed);
   }
 }
