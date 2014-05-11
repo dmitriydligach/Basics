@@ -27,14 +27,30 @@ public class BigDecimalTest {
     BigDecimal product = verySmall.multiply(evenSmaller);
     System.out.println("\nproduct: " + product);
     
-    double log = log(new BigDecimal("4.5e-135"));
-    System.out.println("log: " + log);
+    double log1 = log(new BigDecimal("4.5e-135"));
+    System.out.println("\nlog1: " + log1);
+    BigDecimal number = new BigDecimal("4.3820517742918041470545631455024704337120056152343750000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000026925420118198917229790367855457589030265808105468750E-1461");
+    double log2 = log(number);
+    System.out.println("log: " + log2);
+    double log3 = log(number, 2);
+    System.out.println("log: " + log3);
   }
   
+  /**
+   * Calculate log of a big decimal.
+   * log10(unsc_val * 10^-scale) = log10(unsc_val) + log10(10^-scale) = log10(unsc_val) - scale
+   */
   public static double log(BigDecimal argument) {
-    // log10(unsc_val * 10^-scale) = log10(unsc_val) + log10(10^-scale) = log10(unsc_val) - scale
     BigInteger unscaledValue = argument.unscaledValue();
     int scale = argument.scale();
     return Math.log10(unscaledValue.doubleValue()) - scale;
+  }
+  
+  public static double log(BigDecimal argument, int numDecimalPlaces) {
+    // log10(unsc_val * 10^-scale) = log10(unsc_val) + log10(10^-scale) = log10(unsc_val) - scale
+    BigInteger unscaledValue = argument.unscaledValue();
+    double unscaledValueRounded = (double) Math.round(unscaledValue.doubleValue() * 10 * numDecimalPlaces) / (10 * numDecimalPlaces);
+    int scale = argument.scale();
+    return Math.log10(unscaledValueRounded) - scale;
   }
 }
