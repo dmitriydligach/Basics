@@ -8,6 +8,11 @@ public abstract class Shape {
     color = "white";
   }
   
-  public abstract void draw();  
+  public void setColor(String color) {
+    this.color = color;
+  }
+  
+  public abstract void draw();
+  
   public abstract double computeArea();
 }
