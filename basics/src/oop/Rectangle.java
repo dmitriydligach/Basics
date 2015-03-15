@@ -2,8 +2,8 @@ package oop;
 
 public class Rectangle extends Shape {
 
-  public double height;
-  public double length;
+  private double height;
+  private double length;
 
   public Rectangle(double height, double length) {
     this.height = height;

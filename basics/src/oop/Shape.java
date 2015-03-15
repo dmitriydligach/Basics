@@ -2,7 +2,7 @@ package oop;
 
 public abstract class Shape {
 
-  public String color;
+  protected String color;
   
   public Shape() {
     color = "white";

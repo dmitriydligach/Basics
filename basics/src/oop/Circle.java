@@ -2,8 +2,8 @@ package oop;
 
 public class Circle extends Shape {
 
-  public static final double pi = 3.14159226;
-  public double radius;
+  private static final double pi = 3.14159226;
+  private double radius;
 
   public Circle(double radius) {
     this.radius = radius;

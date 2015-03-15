@@ -2,9 +2,9 @@ package oop;
 
 public class Triangle extends Shape {
 
-  public double sideA;
-  public double sideB;
-  public double sideC;
+  private double sideA;
+  private double sideB;
+  private double sideC;
 
   public Triangle(double a, double b, double c) {
     sideA = a;
